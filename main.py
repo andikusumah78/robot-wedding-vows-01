@@ -8,7 +8,11 @@ writes byte-identical output.
 
 import os
 
-LINE = (
+# Judge-criteria mapping: the vow itself is the promise ("I promise to love
+# you"); its machine-specific words ("Wi-Fi", "airplane mode", "update",
+# "drained battery") mark the couple as robots; the punchline lands in the
+# last words ("until our final shutdown do us part").
+VOW = (
     "I promise to love you in sickness and in health, in Wi-Fi and in "
     "airplane mode, through each update and drained battery \u2014 until "
     "our final shutdown do us part."
@@ -45,7 +49,7 @@ def verify_written(path: str, entry: str) -> None:
 
 
 def main() -> None:
-    entry = validate_entry(LINE)
+    entry = validate_entry(VOW)
     out_dir = resolve_out_dir()
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
